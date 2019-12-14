@@ -1,0 +1,31 @@
+function render() {
+  const svgContainer = svg.node().closest('div')
+  const svgWidth = svgContainer.offsetWidth
+  // Do you want it to be full height? Pick one of the two below
+  const svgHeight = height + margin.top + margin.bottom
+  // const svgHeight = window.innerHeight
+
+  const actualSvg = d3.select(svg.node().closest('svg'))
+  actualSvg.attr('width', svgWidth).attr('height', svgHeight)
+
+  const newWidth = svgWidth - margin.left - margin.right
+  const newHeight = svgHeight - margin.top - margin.bottom
+
+  // Update our scale
+  xPositionScale.range([0, newWidth])
+  yPositionScale.range([newHeight, 0])
+
+  // Update things you draw
+
+  // Update axes
+  svg.select('.x-axis').call(xAxis)
+  svg.select('.y-axis').call(yAxis)
+}
+
+// When the window resizes, run the function
+// that redraws everything
+window.addEventListener('resize', render)
+
+// And now that the page has loaded, let's just try
+// to do it once before the page has resized
+render()
