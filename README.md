@@ -1,4 +1,3 @@
-# student-homelessness-nyc
 ## NYC School Districts, Student Homelessness and SAT's
 
 High schoolers need to study for their standardized exams in different subjects to achieve college proficiency and get a high school diploma. But with a number of homeless students two times higher than the city average, Crotona International High School got the worst SAT scores during the latest school year.
