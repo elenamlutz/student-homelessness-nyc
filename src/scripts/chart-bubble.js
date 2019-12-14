@@ -126,7 +126,7 @@ function ready(datapoints) {
   const xAxis = d3
     .axisBottom(xPositionScale)
     .tickPadding(10)
-    // .tickFormat(d3.format('.0%'))
+    .tickFormat(d3.format('.0%'))
     .ticks(5)
     .tickSize(5)
   svg

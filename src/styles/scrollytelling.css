@@ -1,3 +1,53 @@
+#scrolly-images img {
+  display: block;
+  opacity: 0;
+  -webkit-transition: all 0.8s ease;
+  -moz-transition: all 0.8s ease;
+  -o-transition: all 0.8s ease;
+  transition: all 0.5s ease;
+}
+
+#scrolly-images .is-active {
+  opacity:1;
+}
+
+#img-holder {
+  position: -webkit-sticky;
+  position: sticky;
+  display: inline-block;
+  top: 10px;
+}
+
+.image-stepper img {
+  padding: 10px 10px;
+  width: auto;
+}
+
+#img-1 {
+  position:absolute;
+  z-index:-50;
+  }
+#img-2 {
+  position:absolute;  
+  z-index:-51;  
+  }
+/* #img-3 {
+  position:absolute;  
+  z-index:-52;  
+  }
+#img-4 {
+  position:absolute;
+  z-index:-53;
+  }
+#img-5 {
+  position:absolute;
+  z-index:-54;
+  }
+#img-6 {
+  position:absolute;
+  z-index:-55;
+  } */
+
 /* 
 
 Begin responsive design and scrollytelling
@@ -59,19 +109,15 @@ svg {
 
 .scrollytelling .step {
   max-width: 30rem;
-  margin: 0 auto;
-  margin-bottom: 80vh;
-  padding-left: 20px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-right: 20px;
-
+  margin: 0 auto 80vh;
+  padding: 20px;
   background-color: rgba(255, 255, 255, 0.329);
   color: white;
-  font-family: sans-serif;
+  font-family: 'Optima', sans-serif;
   font-weight: 70;
   font-size: 15px;
   pointer-events: auto;
+  margin-top:100px;
 }
 
 .scrollytelling .step *:first-child {
@@ -88,7 +134,7 @@ svg {
 .scrollytelling .steps {
   z-index: 10;
   padding-bottom: 1vh;
-  pointer-events: none;
+  /* pointer-events: none; */
 }
 
 /* This is the point where it collapses */

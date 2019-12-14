@@ -1,20 +1,34 @@
-<div class="story-body scrollytelling image-stepper">
-    <div id="chart-04" class="chart">
-      <img src="images/districts2019-01.png" id="cat1">
-      <img src="images/topdistricts2019-01.png" id="cat2">
-      {{!-- <img src="images/cat3.jpg" id="cat3"> --}}
+<div class="story-body scrollytelling image-stepper" id="scrolly-images">
+    <div id="img-holder" class='chart'>
+            <img src='images/districts2019-01.png' id='img-1'>
+            <img src='images/topdistricts2019-01.png' id='img-2'>
+            {{!-- <img src='images/img-3.png' id='img-3'>
+            <img src='images/img-4.png' id='img-4'>
+            <img src='images/img-5.png' id='img-5'>
+            <img src='images/img-6.png' id='img-6'> --}}
     </div>
 
     <div class="steps">
-        <div class="step" data-show-selector='#cat1'>
+        <div class="step" data-show-selector='#img-1'>
             <h3>High School Homelessness by District</h3>
             <p>From the roughly 12,500 students living in temporary housing during the 2009-2010 school year, there are now over 26,500, facing a number of obstacles that make it harder to achieve college proficiency levels in their tests.</p>
         </div>
-
-        <div class="step" data-show-selector='#cat2'>
+        <div class="step" data-show-selector='#img-2'>
             <p>These are the 10 districts with highest rates of homelessness. Five of them are located in the Bronx, four are in Brooklyn and one –– District 6, east of the Bronx –– is in Manhattan.</p>
         </div>
+        {{!-- <div class="step" data-show-selector='#img-3'>
+            <p>STEP 3</p>
+        </div>
+        <div class="step" data-show-selector='#img-4'>
+            <p>STEP 4</p>
+        </div>
+        <div class="step" data-show-selector='#img-5'>
+            <p>STEP 5</p>
+        </div>             
+        <div class="step" data-show-selector='#img-6'>
+            <p>STEP 6</p>
+        </div>          --}}
     </div>
-</div>
 
+</div>
 <script src="scripts/chart-images.js"></script>

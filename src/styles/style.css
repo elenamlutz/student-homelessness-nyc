@@ -15,8 +15,8 @@
 
 body {
     margin:auto;
-    padding:0px 0px;
-    font-family: 'Open Sans', sans-serif;
+    padding-bottom:30px;
+    font-family: 'Georgia', sans-serif;
 }
 
 img {
@@ -159,9 +159,8 @@ p.note {
 .chart-section {
     width:100%;
     max-width:1200px;
-    padding:20px 0px;
+    padding:0px 0px;
 }
-
 
 .story-body .chart-section {
     padding-top:0px;
@@ -187,7 +186,7 @@ p.note {
     background: rgba(255, 255, 255, 0.815);
     color: rgb(17, 17, 17);
     border-radius: 1px;
-    position:relative;
+    position: static;
 }
 
 .d3-tip:after {
@@ -197,7 +196,7 @@ p.note {
     line-height: 1;
     color: rgba(0, 0, 0, 0.6);
     content: "\25BC";
-    position: relative;
+    position: static;
     text-align: center;
 }
 
@@ -205,27 +204,7 @@ p.note {
 .chart-row {
     display:flex;
     justify-content: space-between;
-    margin-top:20px;
-}
-
-p.chart-title {
-    font-size:1.3rem;
-    font-weight:700;
-    max-width:700px;
-    margin:0px auto 5px auto;
-}
-p.chart-subhead {
-    margin:0 auto;
-    max-width:700px;
-    font-size:1rem;
-    margin-bottom:15px;
-}
-
-p.chart-label {
-    margin:0 0 5px 0;
-    font-size:0.85rem;
-    text-transform:uppercase;
-    font-weight:600;
+    margin-top:0px;
 }
 
 .chart-row .chart {
@@ -241,7 +220,7 @@ p.chart-source {
 }
 
 .axis text {
-    font-family: sans-serif;
+    font-family: 'Optima', sans-serif;
     font-size: 12px;
     font-weight: 200;
 }

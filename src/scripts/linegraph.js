@@ -123,6 +123,7 @@ function ready(datapoints) {
     .tickPadding(10)
     .ticks(7)
     .tickSize(5)
+    .tickFormat(d3.format('d'))
 
   svg
     .append('g')
