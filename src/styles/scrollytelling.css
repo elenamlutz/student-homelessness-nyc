@@ -19,7 +19,8 @@
 }
 
 .image-stepper img {
-  padding: 10px 10px;
+  padding: 80px 10px;
+  padding-left:0px;
   width: auto;
 }
 
@@ -31,7 +32,7 @@
   position:absolute;  
   z-index:-51;  
   }
-/* #img-3 {
+#img-3 {
   position:absolute;  
   z-index:-52;  
   }
@@ -39,20 +40,8 @@
   position:absolute;
   z-index:-53;
   }
-#img-5 {
-  position:absolute;
-  z-index:-54;
-  }
-#img-6 {
-  position:absolute;
-  z-index:-55;
-  } */
 
-/* 
-
-Begin responsive design and scrollytelling
-
-*/
+/* Responsive design and scrollytelling 
 
 svg {
   display: block;

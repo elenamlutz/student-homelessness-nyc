@@ -17,8 +17,7 @@ d3.selectAll('.image-stepper .step').on('stepin', function() {
   // else:
   // remove '.is-active' class from other images to make them opacity 0
 
-  // MAKE SURE YU CHANGE i <=6 to match the number of images you have. If you have 4 images/steps, this should be i <= 4
-  for (let i = 1; i <= 2; i++) {
+  for (let i = 1; i <= 5; i++) {
     if (parseInt(imageId.charAt(imageId.length - 1)) === i) {
       d3.select(`#img-${i}`).classed('is-active', true)
     } else {
