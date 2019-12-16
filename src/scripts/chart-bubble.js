@@ -8,7 +8,6 @@ const margin = { top: 80, left: 100, right: 100, bottom: 80 }
 const width = 650 - margin.left - margin.right
 const height = 650 - margin.top - margin.bottom
 
-// You'll probably need to edit this one
 const svg = d3
   .select('#chart-bubble')
   .append('svg')
@@ -17,7 +16,6 @@ const svg = d3
   .append('g')
   .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
 
-// Here are some scales for you
 const xPositionScale = d3
   .scaleLinear()
   .domain([0, 0.8])
@@ -27,15 +25,6 @@ const yPositionScale = d3
   .scaleLinear()
   .domain([700, 1500])
   .range([height, 0])
-
-const radiusScale = d3
-  .scaleSqrt()
-  .domain([0, 100])
-  .range([0, 35])
-
-const colorScale = d3
-  .scaleOrdinal()
-  .range(['#b3e2cd', '#fdcdac', '#cbd5e8', '#f4cae4', '#e6f5c9', '#fff2ae'])
 
 const tip = d3
   .tip()
@@ -108,6 +97,7 @@ function ready(datapoints) {
     .attr('width', width)
     .attr('fill', '#161616')
     .lower()
+
   svg
     .append('line')
     .attr('class', 'average-line')
@@ -129,6 +119,7 @@ function ready(datapoints) {
     .tickFormat(d3.format('.0%'))
     .ticks(5)
     .tickSize(5)
+
   svg
     .append('g')
     .attr('class', 'axis x-axis')
@@ -150,7 +141,6 @@ function ready(datapoints) {
     .attr('d', 'M 0 0 12 6 0 12 3 6')
     .style('fill', 'white')
 
-  // line
   svg
     .append('line')
     .attr('x1', 310)
@@ -212,6 +202,7 @@ function ready(datapoints) {
         }
       })
   })
+
   d3.select('#top-step').on('stepout', () => {
     svg
       .selectAll('.bubble')
@@ -226,6 +217,7 @@ function ready(datapoints) {
       .duration(1000)
       .attr('x', width)
   })
+
   d3.select('#final-step').on('stepin', () => {
     svg
       .selectAll('.bubble')
@@ -238,52 +230,4 @@ function ready(datapoints) {
         }
       })
   })
-
-  //   } else if (d.district == '9') {
-  //     return '#F8977C'
-  //   } else if (d.district == '12') {
-  //     return '#F8977C'
-  //   } else if (d.district == '7') {
-  //     return '#F8977C'
-  //   } else if (d.district == '23') {
-  //     return '#F8977C'
-  //   } else if (d.district == '8') {
-  //     return '#F8977C'
-  //   } else if (d.district == '32') {
-  //     return '#F8977C'
-  //   } else if (d.district == '11') {
-  //     return '#F8977C'
-  //   } else if (d.district == '16') {
-  //     return '#F8977C'
-  //   } else if (d.district == '19') {
-  //     return '#F8977C'
-  //   } else {
-  //     return 'white'
-  //   }
-  // })
-  // .transition()
-  // .attr('r', d => {
-  //   if (d.district == '6') {
-  //     return 10
-  //   } else if (d.district == '9') {
-  //     return 10
-  //   } else if (d.district == '12') {
-  //     return 10
-  //   } else if (d.district == '7') {
-  //     return 10
-  //   } else if (d.district == '23') {
-  //     return 10
-  //   } else if (d.district == '8') {
-  //     return 10
-  //   } else if (d.district == '32') {
-  //     return 10
-  //   } else if (d.district == '11') {
-  //     return 10
-  //   } else if (d.district == '16') {
-  //     return 10
-  //   } else if (d.district == '19') {
-  //     return 10
-  //   } else {
-  //     return 6
-  //   }
 }

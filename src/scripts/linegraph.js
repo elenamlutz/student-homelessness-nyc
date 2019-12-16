@@ -1,4 +1,7 @@
 import * as d3 from 'd3'
+import * as debounce from 'debounce'
+import d3Tip from 'd3-tip'
+d3.tip = d3Tip
 
 const margin = { top: 80, left: 80, right: 120, bottom: 80 }
 const height = 600 - margin.top - margin.bottom
@@ -13,14 +16,23 @@ const svg = d3
   .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
 
 const xPositionScale = d3.scaleLinear().range([0, width])
+
 const yPositionScale = d3.scaleLinear().range([height, 0])
+
+const tip = d3
+  .tip()
+  .attr('class', 'd3-tip')
+  .offset([-10, 0])
+  .html(function(d) {
+    return '<b>' + d.sum_students + '</span>'
+  })
+svg.call(tip)
 
 const line = d3
   .line()
   .x(d => xPositionScale(d.year))
   .y(d => yPositionScale(d.sum_students))
 
-// Read in files
 d3.csv(require('../data/linegraph.csv'))
   .then(ready)
   .catch(err => {
@@ -28,7 +40,6 @@ d3.csv(require('../data/linegraph.csv'))
   })
 
 function ready(datapoints) {
-  // UPDATE SCALES
   const minYear = d3.min(datapoints, function(d) {
     return +d.year
   })
@@ -50,6 +61,7 @@ function ready(datapoints) {
     return +d.sum_students
   })
   console.log(maxValue)
+
   yPositionScale.domain([0, 30000])
 
   const nested = d3
@@ -71,6 +83,7 @@ function ready(datapoints) {
       console.log('This nested thing is', d)
       return line(d.values)
     })
+
   svg
     .selectAll('text')
     .data(nested)
@@ -93,7 +106,6 @@ function ready(datapoints) {
     .attr('dy', 0)
     .attr('alignment-baseline', 'middle')
 
-  // Draw the circles
   svg
     .selectAll('.student-circle')
     .data(datapoints)
@@ -108,6 +120,9 @@ function ready(datapoints) {
     .attr('cy', function(d) {
       return yPositionScale(d.sum_students)
     })
+    .on('mouseover', tip.show)
+    .on('mouseout', tip.hide)
+
   const curtain = svg
     .append('rect')
     .attr('x', -1.5 * width)
@@ -136,6 +151,7 @@ function ready(datapoints) {
     .tickPadding(10)
     .tickValues([0, 5000, 10000, 15000, 20000, 25000, 30000])
     .tickSize(7)
+
   svg
     .append('g')
     .attr('class', 'axis y-axis')
@@ -148,7 +164,6 @@ function ready(datapoints) {
     .attr('opacity', 0.25)
 
   svg.selectAll('.y-axis path').remove()
-  // svg.selectAll('.x-axis path').remove()
 
   // SCROLLYTELLING
 
@@ -159,6 +174,7 @@ function ready(datapoints) {
       // .ease('linear')
       .attr('x', -2 * 700)
   })
+
   d3.select('#city-step').on('stepin', function() {
     svg.selectAll('.students').attr('stroke', function(d) {
       console.log(d)
@@ -168,6 +184,7 @@ function ready(datapoints) {
         return '#cccccc'
       }
     })
+
     svg.selectAll('.student-text').attr('fill', function(d) {
       if (d.key === 'NEW YORK CITY') {
         return '#F8977C'
@@ -175,6 +192,7 @@ function ready(datapoints) {
         return '#cccccc'
       }
     })
+
     svg.selectAll('.student-circle').attr('fill', function(d) {
       if (d.county === 'NEW YORK CITY') {
         return '#F8977C'

@@ -6,7 +6,6 @@ const margin = { top: 80, left: 100, right: 100, bottom: 80 }
 const width = 600 - margin.left - margin.right
 const height = 600 - margin.top - margin.bottom
 
-// You'll probably need to edit this one
 const svg = d3
   .select('#chart-scatter')
   .append('svg')
@@ -15,7 +14,6 @@ const svg = d3
   .append('g')
   .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
 
-// Here are some scales for you
 const xPositionScale = d3
   .scaleLinear()
   .domain([0, 1.0])
@@ -46,30 +44,6 @@ function ready(datapoints) {
     .attr('fill', '#F8977C')
     .attr('opacity', 0.4)
 
-  // svg
-  //   .append('text')
-  //   .attr('class', 'title')
-  //   .attr('x', -30)
-  //   .attr('y', -65)
-  //   .text('Homelessness and Race')
-  // svg
-  //   .append('text')
-  //   .attr('class', 'subtitle')
-  //   .attr('x', -30)
-  //   .attr('y', -40)
-  //   .text(
-  //     'Hispanic and Black students experience homelessness at higher rates.'
-  //   )
-  // .classed('country-circle', true)
-  // .on('mouseover', function(d) {
-  //   console.log('ok')
-  //   d3.select(this).attr('stroke', 'black')
-  // })
-  // .on('mouseout', function(d) {
-  //   console.log('ok2')
-  //   d3.select(this).attr('stroke', 'none')
-  // })
-
   const yAxis = d3
     .axisLeft(yPositionScale)
     .tickPadding(10)
@@ -80,8 +54,6 @@ function ready(datapoints) {
     .attr('class', 'axis y-axis')
     .call(yAxis)
     .lower()
-
-  // d3.select('.y-axis .domain').remove()
 
   const xAxis = d3
     .axisBottom(xPositionScale)
@@ -95,11 +67,8 @@ function ready(datapoints) {
     .attr('transform', 'translate(0,' + height + ')')
     .call(xAxis)
 
-  /* 
+  /* SCROLLYTELLING */
 
-  SCROLLYTELLING
-
-  */
   d3.select('#title-step').on('stepin', function() {
     svg
       .selectAll('circle')
@@ -107,6 +76,7 @@ function ready(datapoints) {
       .attr('cy', d => yPositionScale(d.homeless))
       .attr('fill', '#F8977C')
   })
+
   d3.select('#white-step').on('stepin', function() {
     svg
       .selectAll('circle')
