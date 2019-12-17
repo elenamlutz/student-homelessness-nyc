@@ -3,7 +3,7 @@ import * as debounce from 'debounce'
 import d3Tip from 'd3-tip'
 d3.tip = d3Tip
 
-const margin = { top: 80, left: 80, right: 120, bottom: 80 }
+const margin = { top: 80, left: 100, right: 190, bottom: 80 }
 const height = 600 - margin.top - margin.bottom
 const width = 600 - margin.left - margin.right
 
@@ -125,10 +125,10 @@ function ready(datapoints) {
 
   const curtain = svg
     .append('rect')
-    .attr('x', -1.5 * width)
+    .attr('x', -1.8 * width)
     .attr('y', -1 * height)
     .attr('height', height)
-    .attr('width', 700)
+    .attr('width', 850)
     .attr('class', 'curtain')
     .attr('transform', 'rotate(180)')
     .style('fill', '#161616')
@@ -201,4 +201,71 @@ function ready(datapoints) {
       }
     })
   })
+
+  function render() {
+    const svgContainer = svg.node().closest('div')
+    const svgWidth = svgContainer.offsetWidth
+    const svgHeight = height + margin.top + margin.bottom
+    // const svgHeight = window.innerHeight
+
+    const actualSvg = d3.select(svg.node().closest('svg'))
+    actualSvg.attr('width', svgWidth).attr('height', svgHeight)
+    const newWidth = svgWidth - margin.left - margin.right
+    const newHeight = svgHeight - margin.top - margin.bottom
+
+    xPositionScale.range([0, newWidth])
+    if (svgWidth < 600) {
+      xAxis.ticks(2)
+    }
+    if (svgWidth < 600) {
+      xAxis.tickValues([2012, 2019])
+    } else {
+      xAxis.ticks(8)
+    }
+
+    yPositionScale.range([newHeight, 0])
+
+    svg
+      .selectAll('.student-circle')
+      .attr('cx', function(d) {
+        return xPositionScale(d.year)
+      })
+      .attr('cy', function(d) {
+        return yPositionScale(d.sum_students)
+      })
+      .on('mouseover', tip.show)
+      .on('mouseout', tip.hide)
+
+    svg.selectAll('.students').attr('d', function(d) {
+      return line(d.values)
+    })
+
+    svg
+      .selectAll('.student-text')
+      .attr('x', newWidth)
+      .attr('y', function(d) {
+        const datapoints1 = d.values
+        const thisyearData = datapoints1.find(d => +d.year === 2019)
+        console.log('Latest school year is', thisyearData)
+        return yPositionScale(thisyearData.sum_students)
+      })
+
+    svg.selectAll('.y-axis line').attr('x1', newWidth)
+
+    svg
+      .append('rect')
+      .attr('x', -1.8 * newWidth)
+      .attr('y', -1 * height)
+      .attr('height', height)
+      .attr('width', 850)
+      .attr('class', 'curtain')
+      .attr('transform', 'rotate(180)')
+      .style('fill', '#33333300')
+
+    svg.select('.x-axis').call(xAxis)
+  }
+
+  window.addEventListener('resize', render)
+
+  render()
 }
