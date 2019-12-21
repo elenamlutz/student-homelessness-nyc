@@ -3,7 +3,7 @@ import * as debounce from 'debounce'
 import d3Tip from 'd3-tip'
 d3.tip = d3Tip
 
-const margin = { top: 80, left: 100, right: 190, bottom: 80 }
+const margin = { top: 80, left: 80, right: 110, bottom: 80 }
 const height = 600 - margin.top - margin.bottom
 const width = 600 - margin.left - margin.right
 
@@ -123,16 +123,6 @@ function ready(datapoints) {
     .on('mouseover', tip.show)
     .on('mouseout', tip.hide)
 
-  const curtain = svg
-    .append('rect')
-    .attr('x', -1.8 * width)
-    .attr('y', -1 * height)
-    .attr('height', height)
-    .attr('width', 850)
-    .attr('class', 'curtain')
-    .attr('transform', 'rotate(180)')
-    .style('fill', '#161616')
-
   const xAxis = d3
     .axisBottom(xPositionScale)
     .tickPadding(10)
@@ -167,17 +157,8 @@ function ready(datapoints) {
 
   // SCROLLYTELLING
 
-  d3.select('#nothing').on('stepin', function() {
-    curtain
-      .transition()
-      .duration(4000)
-      // .ease('linear')
-      .attr('x', -2 * 700)
-  })
-
   d3.select('#city-step').on('stepin', function() {
     svg.selectAll('.students').attr('stroke', function(d) {
-      console.log(d)
       if (d.key === 'NEW YORK CITY') {
         return '#F8977C'
       } else {
@@ -219,8 +200,12 @@ function ready(datapoints) {
     }
     if (svgWidth < 600) {
       xAxis.tickValues([2012, 2019])
-    } else {
+    }
+    if (svgWidth > 600) {
       xAxis.ticks(8)
+    }
+    if (svgWidth > 600) {
+      xAxis.tickValues([2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019])
     }
 
     yPositionScale.range([newHeight, 0])
@@ -251,17 +236,6 @@ function ready(datapoints) {
       })
 
     svg.selectAll('.y-axis line').attr('x1', newWidth)
-
-    svg
-      .append('rect')
-      .attr('x', -1.8 * newWidth)
-      .attr('y', -1 * height)
-      .attr('height', height)
-      .attr('width', 850)
-      .attr('class', 'curtain')
-      .attr('transform', 'rotate(180)')
-      .style('fill', '#33333300')
-
     svg.select('.x-axis').call(xAxis)
   }
 

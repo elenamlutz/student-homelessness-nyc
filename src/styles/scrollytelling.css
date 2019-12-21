@@ -64,6 +64,13 @@ svg {
 }
 
 /* ...except the .steps and .chart! They'll share a row, sometimes */
+.scrollytelling > .steps1,
+.scrollytelling > .chart {
+  flex-basis: 100%;
+  flex-shrink: 0;
+  flex-grow: 1;
+}
+
 .scrollytelling > .steps,
 .scrollytelling > .chart {
   flex-basis: 20%;
@@ -88,6 +95,18 @@ svg {
   justify-content: center;
   align-items: center;
 }
+
+.scrollytelling .chart1 {
+  margin-right: 15px;
+  position: sticky;
+  top: 40px;
+  z-index: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 .scrollytelling .chart svg {
   margin: auto;
@@ -120,6 +139,53 @@ svg {
   padding-bottom: 0;
 }
 
+
+.scrollytelling .step1 {
+  max-width: 30rem;
+  margin: 0 auto 80vh;
+  padding: 0px;
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+  font-family: 'Optima', sans-serif;
+  font-weight: 70;
+  font-size: 15px;
+  pointer-events: auto;
+  margin-top:0px;
+}
+
+.scrollytelling .step1 *:first-child {
+  margin-top: 0vh;
+  padding-top: 0;
+}
+
+.scrollytelling .step1 *:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.scrollytelling .step2 {
+  max-width: 30rem;
+  margin: 0 auto 100vh;
+  padding: 0px;
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+  font-family: 'Optima', sans-serif;
+  font-weight: 70;
+  font-size: 15px;
+  pointer-events: auto;
+  margin-top:0px;
+}
+
+.scrollytelling .step2 *:first-child {
+  margin-top: 0vh;
+  padding-top: 0;
+}
+
+.scrollytelling .step2 *:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
 /* This is a weird spacing fix */
 .scrollytelling .steps {
   z-index: 10;
@@ -140,9 +206,3 @@ svg {
       flex-basis: 100% !important;
   }
 }
-
-/* 
-
-End scrollytelling 
-
-*/

@@ -89,16 +89,6 @@ function ready(datapoints) {
   svg.selectAll('.y-axis path').remove()
 
   svg
-    .append('rect')
-    .attr('class', 'rect_thing')
-    .attr('x', 0)
-    .attr('y', 0)
-    .attr('height', height)
-    .attr('width', width)
-    .attr('fill', '#161616')
-    .lower()
-
-  svg
     .append('line')
     .attr('class', 'average-line')
     .attr('x1', 0)
@@ -109,7 +99,7 @@ function ready(datapoints) {
     .attr('y2', function(d) {
       return yPositionScale(950)
     })
-    .attr('stroke', '#A91622')
+    .attr('stroke', '#161616')
     .attr('stroke-width', 2)
     .lower()
 
@@ -185,10 +175,9 @@ function ready(datapoints) {
 
   d3.select('#nothing-step').on('stepin', () => {
     svg
-      .select('.rect_thing')
-      .transition()
-      .duration(4000)
-      .attr('x', width)
+      .select('.average-line')
+      .attr('stroke', '#A91622')
+      .raise()
   })
 
   d3.select('#top-step').on('stepin', () => {
@@ -211,13 +200,12 @@ function ready(datapoints) {
       .attr('opacity', 0.8)
   })
 
-  d3.select('#average-step').on('stepin', () => {
-    svg
-      .select('.rect_thing')
-      .transition()
-      .duration(1000)
-      .attr('x', width)
-  })
+  // d3.select('#average-step').on('stepin', () => {
+  //   svg
+  //     .selectAll('.average-line')
+  //     .attr('stroke', '#A91622')
+  //     .raise()
+  // })
 
   d3.select('#final-step').on('stepin', () => {
     svg
