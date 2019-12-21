@@ -52,7 +52,16 @@ svg {
   max-width: 970px;
 }
 
+.scrollytelling1.story-body {
+  max-width: 700px;
+}
+
 .scrollytelling {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.scrollytelling1 {
   display: flex;
   flex-wrap: wrap;
 }
@@ -63,9 +72,14 @@ svg {
   flex-shrink: 0;
 }
 
+.scrollytelling1 > * {
+  flex-basis: 100%;
+  flex-shrink: 0;
+}
+
 /* ...except the .steps and .chart! They'll share a row, sometimes */
-.scrollytelling > .steps1,
-.scrollytelling > .chart {
+.scrollytelling1 > .steps1,
+.scrollytelling1 > .chart1 {
   flex-basis: 100%;
   flex-shrink: 0;
   flex-grow: 1;
@@ -84,6 +98,10 @@ svg {
   flex-grow: 3;
   overflow: hidden;
 }
+.scrollytelling1 > .chart1 {
+  flex-grow: 3;
+  overflow: hidden;
+}
 
 .scrollytelling .chart {
   margin-right: 15px;
@@ -96,7 +114,7 @@ svg {
   align-items: center;
 }
 
-.scrollytelling .chart1 {
+.scrollytelling1 .chart1 {
   margin-right: 15px;
   position: sticky;
   top: 40px;
@@ -140,7 +158,7 @@ svg {
 }
 
 
-.scrollytelling .step1 {
+.scrollytelling1 .step1 {
   max-width: 30rem;
   margin: 0 auto 80vh;
   padding: 0px;
@@ -153,19 +171,9 @@ svg {
   margin-top:0px;
 }
 
-.scrollytelling .step1 *:first-child {
-  margin-top: 0vh;
-  padding-top: 0;
-}
-
-.scrollytelling .step1 *:last-child {
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-.scrollytelling .step2 {
+.scrollytelling1 .step2 {
   max-width: 30rem;
-  margin: 0 auto 100vh;
+  margin: 0 auto 140vh;
   padding: 0px;
   background-color: rgba(255, 255, 255, 0);
   color: white;
@@ -176,12 +184,12 @@ svg {
   margin-top:0px;
 }
 
-.scrollytelling .step2 *:first-child {
+.scrollytelling1 .step1 *:first-child {
   margin-top: 0vh;
   padding-top: 0;
 }
 
-.scrollytelling .step2 *:last-child {
+.scrollytelling1 .step1 *:last-child {
   margin-bottom: 0;
   padding-bottom: 0;
 }
@@ -206,3 +214,9 @@ svg {
       flex-basis: 100% !important;
   }
 }
+
+/* 
+
+End scrollytelling 
+
+*/
