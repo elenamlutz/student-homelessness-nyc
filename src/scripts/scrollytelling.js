@@ -23,3 +23,26 @@ enterView({
     }
   }
 })
+
+enterView({
+  selector: '.step2',
+  offset: 0.4,
+  enter: function(element) {
+    element.classList.add('entered')
+
+    // Trigger stepin for current step
+    d3.select(element).dispatch('stepin')
+  },
+  exit: function(element) {
+    element.classList.remove('entered')
+
+    // Trigger stepout for current step
+    d3.select(element).dispatch('stepout')
+
+    // Trigger stepin for previous step (if it exists)
+    const previous = element.previousElementSibling
+    if (previous && previous.classList.contains('step2')) {
+      d3.select(previous).dispatch('stepin')
+    }
+  }
+})

@@ -145,7 +145,7 @@ function ready(datapoints) {
   svg
     .append('text')
     .attr('class', 'homeless-text')
-    .attr('x', 370)
+    .attr('x', 380)
     .attr('y', 560)
     .text('% Homeless')
     .attr('fill', 'white')
@@ -153,9 +153,9 @@ function ready(datapoints) {
   svg
     .append('line')
     .attr('x1', -90)
-    .attr('y1', 190)
+    .attr('y1', 180)
     .attr('x2', -90)
-    .attr('y2', 130)
+    .attr('y2', 120)
 
     .attr('stroke-width', 1)
     .attr('stroke', 'white')
@@ -199,13 +199,6 @@ function ready(datapoints) {
       .transition()
       .attr('opacity', 0.8)
   })
-
-  // d3.select('#average-step').on('stepin', () => {
-  //   svg
-  //     .selectAll('.average-line')
-  //     .attr('stroke', '#A91622')
-  //     .raise()
-  // })
 
   d3.select('#final-step').on('stepin', () => {
     svg

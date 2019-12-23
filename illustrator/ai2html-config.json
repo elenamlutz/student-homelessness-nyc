@@ -7,6 +7,18 @@
             "style": ""
         },
         {
+            "aifont": "OpenSans-Light",
+            "family": "Open Sans",
+            "weight": "400",
+            "style": ""
+        },
+        {
+            "aifont": "OpenSans-Semibold",
+            "family": "Open Sans",
+            "weight": "500",
+            "style": ""
+        },
+        {
             "aifont": "OpenSans",
             "family": "Open Sans",
             "weight": "400",

@@ -74,6 +74,13 @@ img {
 .footer {
     padding-top:20px;
     padding-bottom:20px;
+    max-width: 400px;
+    color: rgba(175, 171, 171, 0.808);
+}
+
+p.note {
+    font-size: 10px;
+    font-family: 'Open Sans';
 }
 
 .chart-section.wide{
@@ -204,9 +211,11 @@ p.note {
 
 }
 
-p.chart-source {
+.chart-source {
     font-size:0.85rem;
     margin:0;
+    font-family: 'Open Sans', sans-serif;
+
 }
 
 .axis text {
@@ -257,6 +266,42 @@ p.caption {
     /* justify-content: center; */
 }
 
+.button {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    width: 140px;
+    padding: 5px;
+    margin: 5%;
+    margin-left: 40%;
+    background-color: lightgrey;
+    border: none;
+    border-radius: 3px;
+    text-transform: uppercase;
+    transition: all 0.2s cubic-bezier(.4,0,.2,1);
+  
+}
+
+#click:hover {
+  background-color: grey;
+  text-decoration: none;
+}
+
+#click.button {
+  text-decoration: none;
+}
+
+.button a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Open sans';
+    font-size: 12px;
+}
+
+button:focus {
+    outline:0;
+}
+
 /* mobile */
 
 @media (max-width:500px) {
@@ -304,7 +349,7 @@ p.caption {
         background-size: cover;
         background-color:white;
         padding-bottom: 0px;
-        /* max-width: 50%; */
+        max-width: 100%;
     }
 
     h1.headline {

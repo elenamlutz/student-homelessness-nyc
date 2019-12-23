@@ -2,4 +2,11 @@
 <div class="story-body">
   <p>Regents exams are also used to measure college proficiency, but homeless students still underperform. These tests are graded by performance levels from 1-4, which reflect the extent to which students demonstrate the level of understanding expected at their grade level. Levels 3 and 4 are considered “college proficient,” according to the state education department.</p>
   <p>State education department data shows that less than 50 percent of homeless students entering high school in 2015 were proficient at Regents tests. Students with stable housing were over 70 percent proficient. </p>
+<div class="button" id="click"><a href="https://github.com/elenamlutz/student-homelessness-nyc"> VIEW CODE</a></button></div>
+<div class="footer">
+  <p class="note"><b>Data and Methodology</b></p>
+  <p class="note">I downloaded datasets from the New York City Department of Education of each high school's student body, average SAT scores for Math, Reading and Writing, and homelessness percentage for each school. Using pandas in Python, I cleaned and merged different datasets and analyzed the correlation between homelessness, race and SAT scores in 2019.</p>
+  <p class='note'>Since the city publicly provided only percentages of Black, Hispanic, white and homeless students for each school, I calculated the count of students for each of those cohorts using enrollment data and the percentage. This way I was able to get more accurate averages of homelessness when I grouped by district, instead of depending only on school percentages. For the line graph, I used data from the New York State Department to calculate homelessness from 9th through 12th grade by county.</p>
+  <p class="note">To create the waffle chart, I used matplotlib and Adobe Illustrator, and then ai2html. I used d3.js to create the linegraph and the scatterplot, and QGIS and Illustrator to create the maps.</p>
+</div>
 </div>

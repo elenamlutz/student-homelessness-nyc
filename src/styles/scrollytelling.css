@@ -78,12 +78,6 @@ svg {
 }
 
 /* ...except the .steps and .chart! They'll share a row, sometimes */
-.scrollytelling1 > .steps1,
-.scrollytelling1 > .chart1 {
-  flex-basis: 100%;
-  flex-shrink: 0;
-  flex-grow: 1;
-}
 
 .scrollytelling > .steps,
 .scrollytelling > .chart {
@@ -92,6 +86,12 @@ svg {
   flex-grow: 1;
 }
 
+.scrollytelling1 > .steps1,
+.scrollytelling1 > .chart1 {
+  flex-basis: 100%;
+  flex-shrink: 0;
+  flex-grow: 1;
+}
 
 /* The bigger 'flex-grow' the more space it takes up */
 .scrollytelling > .chart {
@@ -125,7 +125,6 @@ svg {
   align-items: center;
 }
 
-
 .scrollytelling .chart svg {
   margin: auto;
 }
@@ -134,11 +133,19 @@ svg {
   width: 100wh;
 }
 
+.scrollytelling1 .chart1 svg {
+  margin: auto;
+}
+
+.scrollytelling1 .chart1 img {
+  width: 100wh;
+}
+
 .scrollytelling .step {
   max-width: 30rem;
   margin: 0 auto 80vh;
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.329);
+  background-color: rgba(100, 100, 100, 0.753);
   color: white;
   font-family: 'Optima', sans-serif;
   font-weight: 70;
@@ -194,8 +201,24 @@ svg {
   padding-bottom: 0;
 }
 
+.scrollytelling1 .step2 *:first-child {
+  margin-top: 0vh;
+  padding-top: 0;
+}
+
+.scrollytelling1 .step2 *:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
 /* This is a weird spacing fix */
 .scrollytelling .steps {
+  z-index: 10;
+  padding-bottom: 1vh;
+  /* pointer-events: none; */
+}
+
+.scrollytelling .steps1 {
   z-index: 10;
   padding-bottom: 1vh;
   /* pointer-events: none; */

@@ -123,6 +123,14 @@ function ready(datapoints) {
     .on('mouseover', tip.show)
     .on('mouseout', tip.hide)
 
+  svg
+    .append('text')
+    .text('Source: New York State Department of Education')
+    .attr('class', 'chart-source')
+    .attr('fill', 'white')
+    .attr('x', -60)
+    .attr('y', 510)
+
   const xAxis = d3
     .axisBottom(xPositionScale)
     .tickPadding(10)
